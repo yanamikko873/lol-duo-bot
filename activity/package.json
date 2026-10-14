@@ -1,0 +1,25 @@
+{
+  "name": "lol-duo-activity",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "deploy": "node scripts/fetch-icons.mjs && vite build && wrangler deploy",
+    "icons": "node scripts/fetch-icons.mjs"
+  },
+  "dependencies": {
+    "@discord/embedded-app-sdk": "2.5.0"
+  },
+  "devDependencies": {
+    "vite": "8.3.4",
+    "vitest": "5.0.4",
+    "wrangler": "4.151.0"
+  }
+}

@@ -1,0 +1,607 @@
+{
+  "schema_version": 2,
+  "source": {
+    "type": "user_message",
+    "date": "2026-10-14",
+    "description": "ユーザー提供テキストを基礎に、一部項目を元動画スライドで照合。全編・音声の網羅検証ではない。",
+    "video_url": "https://www.youtube.com/watch?v=hE8JKHzaMYo"
+  },
+  "champions": [
+    {
+      "name": "アッシュ",
+      "category": "ユーティリティ・汎用系 ADC",
+      "variant": "",
+      "supports": [
+        "ルル",
+        "ナミ",
+        "ブラウム",
+        "アリスター"
+      ],
+      "support_groups": [
+        "エンチャンター",
+        "ワーデン"
+      ],
+      "reason": "自前でCCを持つ代わりにダメージがやや劣るため、それを補うエンチャンターや、パッシブの相性が良いブラウムなどのワーデンが最適。",
+      "review_notes": []
+    },
+    {
+      "name": "アフェリオス",
+      "category": "ユーティリティ・汎用系 ADC",
+      "variant": "",
+      "supports": [],
+      "support_groups": [
+        "エンチャンター",
+        "ワーデン",
+        "オールイン系タンク"
+      ],
+      "reason": "序盤をエンチャンターやワーデンに守ってもらい、終盤のピール（保護）を受けながら大ダメージを出すのが理想。武器の噛み合い次第ではオールイン系タンクとも組める。",
+      "review_notes": []
+    },
+    {
+      "name": "ヴァルス(脅威)",
+      "category": "ユーティリティ・汎用系 ADC",
+      "variant": "脅威",
+      "supports": [],
+      "support_groups": [
+        "タンクサポート",
+        "メイジサポート"
+      ],
+      "reason": "ビルドによって相性が変化する。スキル主体の脅威ビルドならタンクやメイジが適している。",
+      "review_notes": []
+    },
+    {
+      "name": "ヴァルス(AS)",
+      "category": "ユーティリティ・汎用系 ADC",
+      "variant": "AS（攻撃速度）",
+      "supports": [],
+      "support_groups": [
+        "エンチャンター",
+        "ワーデン"
+      ],
+      "reason": "ビルドによって相性が変化する。DPSを出すASビルドならエンチャンターやワーデンが適している。",
+      "review_notes": []
+    },
+    {
+      "name": "エズリアル",
+      "category": "レーン・ハラス強め、ユーティリティ系 ADC",
+      "variant": "",
+      "supports": [
+        "カルマ"
+      ],
+      "support_groups": [
+        "メイジ枠"
+      ],
+      "reason": "ウェーブを押し付けて有利を作る動きが強力なため、カルマとの相性が抜群。逆に自衛力の高いエンチャンター（ユーミなど）とは相性がイマイチ。",
+      "review_notes": []
+    },
+    {
+      "name": "ケイトリン",
+      "category": "レーン・ハラス強め、ユーティリティ系 ADC",
+      "variant": "",
+      "supports": [
+        "ラックス",
+        "カルマ",
+        "スレッシュ"
+      ],
+      "support_groups": [
+        "メイジサポート"
+      ],
+      "reason": "長い射程を活かしたハラスとタワーシージ（削り）を行いたいため、メイジやランタン回収ができるスレッシュが合う。",
+      "review_notes": []
+    },
+    {
+      "name": "ジン",
+      "category": "レーン・ハラス強め、ユーティリティ系 ADC",
+      "variant": "",
+      "supports": [
+        "ゼラス",
+        "カルマ",
+        "スレッシュ"
+      ],
+      "support_groups": [
+        "メイジサポート"
+      ],
+      "reason": "序盤から押し込んでいく動きや、WとのCCチェインでバーストを出せるメイジサポートと特に相性が良い。",
+      "review_notes": []
+    },
+    {
+      "name": "ミス・フォーチュン",
+      "category": "レーン・ハラス強め、ユーティリティ系 ADC",
+      "variant": "",
+      "supports": [
+        "レル",
+        "レオナ",
+        "カルマ"
+      ],
+      "support_groups": [],
+      "reason": "強力なAOEウルトを持つため、敵をまとめて固められるCC持ちのタンクや、削りを得意とするカルマと相性が良い。",
+      "review_notes": []
+    },
+    {
+      "name": "ルシアン",
+      "category": "レーン・ハラス強め、ユーティリティ系 ADC",
+      "variant": "",
+      "supports": [
+        "ナミ",
+        "ミリオ",
+        "ブラウム"
+      ],
+      "support_groups": [],
+      "reason": "味方からのバフやCCで追加ダメージが出るパッシブを持つため、ナミやミリオ、パッシブが噛み合うブラウムが強力。",
+      "review_notes": []
+    },
+    {
+      "name": "ヴェイン",
+      "category": "レイトゲームキャリー（序盤耐え型）",
+      "variant": "",
+      "supports": [
+        "ユーミ"
+      ],
+      "support_groups": [
+        "エンチャンター"
+      ],
+      "reason": "序盤のレーニングが致命的に弱いため、そこを支えられるエンチャンターが基本となる。",
+      "review_notes": []
+    },
+    {
+      "name": "コグ＝マウ",
+      "category": "レイトゲームキャリー（序盤耐え型）",
+      "variant": "",
+      "supports": [
+        "ルル",
+        "ミリオ",
+        "ソナ"
+      ],
+      "support_groups": [
+        "エンチャンター"
+      ],
+      "reason": "自衛力が皆無で序盤が超弱いため、それを補いつつAS（攻撃速度）とDPSを増幅できるエンチャンターが必須。",
+      "review_notes": []
+    },
+    {
+      "name": "ジンクス",
+      "category": "レイトゲームキャリー（序盤耐え型）",
+      "variant": "",
+      "supports": [
+        "ルル",
+        "ミリオ",
+        "スレッシュ"
+      ],
+      "support_groups": [
+        "エンチャンター"
+      ],
+      "reason": "レーンの弱さをエンチャンターのバフやスレッシュのピール力（ランタン回収など）でやり過ごす。",
+      "review_notes": []
+    },
+    {
+      "name": "トゥイッチ",
+      "category": "レイトゲームキャリー（序盤耐え型）",
+      "variant": "",
+      "supports": [
+        "ユーミ",
+        "ミリオ",
+        "ラカン"
+      ],
+      "support_groups": [
+        "エンチャンター"
+      ],
+      "reason": "自身で奇襲（ステルス）して戦闘を始める必要があるため、機動力が高くリカバリーやバフができるエンチャンターやラカンが相性良し。",
+      "review_notes": []
+    },
+    {
+      "name": "カイ＝サ",
+      "category": "オールイン・メレー（近接）特化 ADC",
+      "variant": "",
+      "supports": [
+        "ノーチラス",
+        "アムム",
+        "アリスター"
+      ],
+      "support_groups": [
+        "オールイン系タンク"
+      ],
+      "reason": "パッシブ発動やダメージを出すために敵の動きを止める（CC）必要があるため、全身CCのタンクが必須。",
+      "review_notes": []
+    },
+    {
+      "name": "カリスタ",
+      "category": "オールイン・メレー（近接）特化 ADC",
+      "variant": "",
+      "supports": [
+        "ノーチラス",
+        "アリスター",
+        "ニーコ"
+      ],
+      "support_groups": [
+        "オールイン系タンク",
+        "ニーコは理由欄に記載された例外候補"
+      ],
+      "reason": "長時間戦って槍を抜きたいため、突っ込んでくれるタンクや例外的にニーコなどが候補。",
+      "review_notes": []
+    },
+    {
+      "name": "サミーラ",
+      "category": "オールイン・メレー（近接）特化 ADC",
+      "variant": "",
+      "supports": [
+        "レル",
+        "ノーチラス",
+        "アリスター"
+      ],
+      "support_groups": [
+        "ノックアップを持つエンゲージタンク"
+      ],
+      "reason": "打ち上げへの追撃と長めの戦闘を活かす組み合わせ。動画ではエンチャンターとメイジは不向きの評価。",
+      "review_notes": [
+        "元動画の5:39のスライドで確認し、提供テキストのユーミ推奨を修正。"
+      ],
+      "evidence_url": "https://www.youtube.com/watch?v=hE8JKHzaMYo&t=339s"
+    },
+    {
+      "name": "ニーラ",
+      "category": "オールイン・メレー（近接）特化 ADC",
+      "variant": "",
+      "supports": [
+        "ユーミ",
+        "ソラカ",
+        "ジリアン"
+      ],
+      "support_groups": [
+        "エンチャンター"
+      ],
+      "reason": "メレーADCであり、経験値先行パッシブや回復を最大限活かせるエンチャンターとのシナジーが高い。",
+      "review_notes": []
+    },
+    {
+      "name": "トリスターナ",
+      "category": "オールイン・メレー（近接）特化 ADC",
+      "variant": "",
+      "supports": [
+        "ユーミ",
+        "ブラウム",
+        "ブリッツクランク",
+        "スレッシュ"
+      ],
+      "support_groups": [
+        "エンチャンター",
+        "タンク"
+      ],
+      "reason": "リワークにより序盤のオールイン性能が落ちたためエンチャンターで耐えるのが主流だが、キャッチからのバーストも一応可能。",
+      "review_notes": [
+        "リワーク・主流という説明は提供資料の記述です。対象パッチは記載されていません。"
+      ]
+    },
+    {
+      "name": "ゼリ",
+      "category": "機動力・特殊枠 ADC / APC",
+      "variant": "",
+      "supports": [
+        "ユーミ",
+        "ラカン"
+      ],
+      "support_groups": [
+        "エンチャンター"
+      ],
+      "reason": "ゼリのブリンクについていける高い機動力を持つサポートや、ウルトのパワーを底上げするユーミがおすすめ。",
+      "review_notes": []
+    },
+    {
+      "name": "スモルダー",
+      "category": "機動力・特殊枠 ADC / APC",
+      "variant": "",
+      "supports": [
+        "ナミ",
+        "カルマ",
+        "レオナ",
+        "アリスター"
+      ],
+      "support_groups": [
+        "ウェーブ・ダメージ補助型",
+        "タンク"
+      ],
+      "reason": "純粋な支援型エンチャンターよりはウェーブを押せるタイプ、あるいはスタックを溜めるために敵の攻撃を受け止められる硬いタンクが相性良い。",
+      "review_notes": []
+    },
+    {
+      "name": "ドレイヴン",
+      "category": "機動力・特殊枠 ADC / APC",
+      "variant": "",
+      "supports": [
+        "パイク",
+        "カルマ",
+        "スレッシュ",
+        "レオナ"
+      ],
+      "support_groups": [
+        "スノーボール系・殴り合いに強いサポート"
+      ],
+      "reason": "レーンで勝つことが全て。ダメージは自分で出せるため、敵をキルし切るための圧力をかけられるサポートなら何でもOK。",
+      "review_notes": []
+    },
+    {
+      "name": "ジグス(APC)",
+      "category": "機動力・特殊枠 ADC / APC",
+      "variant": "",
+      "supports": [
+        "レオナ"
+      ],
+      "support_groups": [
+        "誰でもOK"
+      ],
+      "reason": "レーンを拒否してファームするピックのため相方は比較的自由。CCチェインができるレオナ等とは綺麗に噛み合う。",
+      "review_notes": []
+    },
+    {
+      "name": "スウェイン(APC)",
+      "category": "機動力・特殊枠 ADC / APC",
+      "variant": "",
+      "supports": [
+        "ノーチラス",
+        "レオナ"
+      ],
+      "support_groups": [],
+      "reason": "スキルを当てた際のリターンを最大化するため、射程の長い強力なCCを持つノーチラスやレオナが最適。",
+      "review_notes": []
+    },
+    {
+      "name": "セラフィーン(APC)",
+      "category": "機動力・特殊枠 ADC / APC",
+      "variant": "",
+      "supports": [
+        "アリスター",
+        "レオナ"
+      ],
+      "support_groups": [
+        "タンク",
+        "メイジ（他レーンでタンクを確保できている場合）"
+      ],
+      "reason": "ウルトの射程を伸ばすために味方タンクが欲しい。他レーンでタンクが確保できているならメイジサポートも選択肢。",
+      "review_notes": []
+    },
+    {
+      "name": "ザヤ",
+      "category": "カウンター・キャッチ連携",
+      "variant": "",
+      "supports": [
+        "ラカン",
+        "スレッシュ",
+        "ルル"
+      ],
+      "support_groups": [
+        "キャッチャー",
+        "ルルは例外候補"
+      ],
+      "reason": "敵を射程に引き込み、羽を使った反撃につなげる相方を評価。",
+      "review_notes": [
+        "元動画のスライドで確認して追加。"
+      ],
+      "evidence_url": "https://www.youtube.com/watch?v=hE8JKHzaMYo&t=379s"
+    },
+    {
+      "name": "シヴィア",
+      "category": "ウェーブクリア",
+      "variant": "",
+      "supports": [
+        "ユーミ"
+      ],
+      "support_groups": [
+        "相方は幅広く選択可能"
+      ],
+      "reason": "ミニオン処理を優先してレーン戦を避けるか、タワーを攻める方針。動画ではユーミも高評価。",
+      "review_notes": [
+        "元動画のスライドで確認して追加。"
+      ],
+      "evidence_url": "https://www.youtube.com/watch?v=hE8JKHzaMYo&t=419s"
+    },
+    {
+      "name": "ベイガー(APC)",
+      "category": "APC・キャッチ連携",
+      "variant": "",
+      "supports": [
+        "ポッピー",
+        "パイク",
+        "ブリッツクランク"
+      ],
+      "support_groups": [
+        "敵の位置を動かせるサポート"
+      ],
+      "reason": "安全に育ちながらEと味方の位置操作を組み合わせる方針。防御面の弱さにも注意。",
+      "review_notes": [
+        "元動画のスライドで確認して追加。"
+      ],
+      "evidence_url": "https://www.youtube.com/watch?v=hE8JKHzaMYo&t=1008s"
+    }
+  ],
+  "tanks": {
+    "ノーチラス": {
+      "difficulty": {
+        "min": 1,
+        "max": 1
+      },
+      "level": "初心者向け",
+      "features": "フック（Q）の判定が大きく、ウルト（R）が対象指定のためミスしにくい。AA（通常攻撃）にスネアが付いており、とにかく扱いやすいお勧めチャンピオン。",
+      "cautions": "フロントを張るための防御スキルがWのシールドのみなため、突っ込んだ後は意外と脆く吹き飛びやすい。",
+      "durability": null,
+      "engage": null,
+      "peel": null,
+      "review_notes": []
+    },
+    "レオナ": {
+      "difficulty": {
+        "min": 2,
+        "max": 2
+      },
+      "level": "初心者向け",
+      "features": "WでAR/MR（防御力）が大きく上昇するため非常に硬い。CC（行動阻害）チェーンが強力で、方向指定のスキルも射程や判定に優れ使いやすい。",
+      "cautions": "スキルが揃う前のレベル1〜2が弱く、CC軽減アイテム（水銀ブーツ等）やクレンズに強い。",
+      "durability": null,
+      "engage": null,
+      "peel": null,
+      "review_notes": [
+        "レベル1〜2・クレンズとの関係は原文を保持しています。パッチや具体的条件は記載されていません。"
+      ]
+    },
+    "レル": {
+      "difficulty": {
+        "min": 2,
+        "max": 2
+      },
+      "level": "初心者向け",
+      "features": "行えることがシンプル（エンゲージ特化）なため、見た目の印象よりも初心者にお勧め。集団戦でウルトが決まった際のリターンが非常に大きい。",
+      "cautions": "フラッシュがないと完璧なエンゲージを決めるのが少し難しい。",
+      "durability": null,
+      "engage": null,
+      "peel": null,
+      "review_notes": []
+    },
+    "ブラウム": {
+      "difficulty": {
+        "min": 2,
+        "max": 2
+      },
+      "level": "初心者向け",
+      "features": "ワーデン（守り）の中では非常に使いやすく強力。Eの盾で飛び道具やウルトを無効化でき、味方を守る性能が高い。",
+      "cautions": "自分から仕掛ける（エンゲージ）性能は低め。突っ込んできた敵にQやパッシブを当てる意識が必要。",
+      "durability": null,
+      "engage": null,
+      "peel": null,
+      "review_notes": [
+        "原文の「ウルトを無効化」はすべてのウルトに適用できるという意味ではありません。"
+      ]
+    },
+    "アリスター": {
+      "difficulty": {
+        "min": 3,
+        "max": 3
+      },
+      "level": "中級者向け",
+      "features": "レベル6以降のウルトによる圧倒的な耐久力（ダメージ軽減）が強み。WとQを組み合わせたエンゲージだけでなく、別々に使って敵を弾き飛ばす「ピール」も可能な柔軟さがある。",
+      "cautions": "レーニング初期（レベル1）が非常に弱い。",
+      "durability": null,
+      "engage": null,
+      "peel": null,
+      "review_notes": []
+    },
+    "マオカイ": {
+      "difficulty": {
+        "min": 3,
+        "max": 3
+      },
+      "level": "中級者向け",
+      "features": "全身CC持ちで、エンゲージだけでなく敵の仕掛けをいなす（ピール）動きも優秀。",
+      "cautions": "サポートビルドだとレベルや資金が足りず、トップ運用時に比べて耐久力が低くなりやすい。",
+      "durability": null,
+      "engage": null,
+      "peel": null,
+      "review_notes": []
+    },
+    "ポッピー": {
+      "difficulty": {
+        "min": 3,
+        "max": 3
+      },
+      "level": "中級者向け",
+      "features": "Wのアンチブリンク（敵の突進を拒否するスキル）が最大の強み。敵が突っ込んでくる構成に対する強力なカウンター。",
+      "cautions": "ウルトの溜め・方向指定などの使い所や、敵がブリンクを持たない構成相手には強みを活かしにくい。",
+      "durability": null,
+      "engage": null,
+      "peel": null,
+      "review_notes": []
+    },
+    "タム・ケンチ": {
+      "difficulty": {
+        "min": 3,
+        "max": 3
+      },
+      "level": "中級者向け",
+      "features": "ウルト（味方を呑み込む）による味方救出能力が圧倒的。メレー（近接）同士の殴り合いや耐久面も非常に強い。",
+      "cautions": "自分から仕掛ける能力（エンゲージ）が非常に低く、メイジサポート相手には何もできなくなりやすい。",
+      "durability": null,
+      "engage": null,
+      "peel": null,
+      "review_notes": []
+    },
+    "ラカン": {
+      "difficulty": {
+        "min": 3,
+        "max": 4
+      },
+      "level": "中級者向け",
+      "features": "圧倒的な機動力を持ち、エンゲージ能力が高い。",
+      "cautions": "純粋なタンクではなくAP寄りの性質を持つため耐久力は低め（2点評価）。高機動を活かして敵のスキルを誘い出しつつ回避するスキルが求められる。",
+      "durability": {
+        "min": 2,
+        "max": 2,
+        "note": "本文の2点評価"
+      },
+      "engage": null,
+      "peel": null,
+      "review_notes": []
+    },
+    "ブリッツクランク": {
+      "difficulty": {
+        "min": 3,
+        "max": 3
+      },
+      "level": "中級者向け",
+      "features": "一発逆転のQ（フック）が全て。敵を引き寄せるキャッチ性能は最高クラス。",
+      "cautions": "タンクとしての耐久性能はなく、Qを外すと「ただのロボット」になる。また、アムムやマオカイなどの入ってきてほしいタンクを引っ張ってしまう事故に注意。",
+      "durability": null,
+      "engage": null,
+      "peel": null,
+      "review_notes": []
+    },
+    "スレッシュ": {
+      "difficulty": {
+        "min": 5,
+        "max": 5
+      },
+      "level": "上級者向け",
+      "features": "フック、ピール、ランタンによる味方救出など何でもできる万能チャンピオンだが、全サポート屈指の難易度を誇る。",
+      "cautions": "レベルによるARの上昇がなくパッシブ依存なため、耐久力が低く脆い。間合い管理（スペーシング）やスキルの精度が極めて高く求められる。",
+      "durability": null,
+      "engage": null,
+      "peel": null,
+      "review_notes": []
+    },
+    "タリック": {
+      "difficulty": {
+        "min": 4,
+        "max": 4
+      },
+      "level": "上級者向け",
+      "features": "スキルを回してAA（通常攻撃）を挟み続けることで脅威的な耐久力と回復力、全体無敵ウルトを発揮する集団戦の鬼。",
+      "cautions": "スキル使用のラグ、非常に厳しいマナ管理、適切な立ち回りの難しさなど癖が強く、使いこなすのが非常に困難。",
+      "durability": null,
+      "engage": null,
+      "peel": null,
+      "review_notes": []
+    },
+    "ガリオ": {
+      "difficulty": {
+        "min": 3,
+        "max": 4
+      },
+      "level": "上級者向け",
+      "features": "AP（魔法）構成に対するカウンターピック。ハードCCを多く持ち、広範囲のウルトによるカウンターエンゲージが強力。",
+      "cautions": "もともとミッドメイジのため、ビルドの進まないサポート枠では純粋なタンク性能（耐久力）が低い。ウルトのCD（クールダウン）も長い。",
+      "durability": null,
+      "engage": null,
+      "peel": null,
+      "review_notes": []
+    },
+    "シェン": {
+      "difficulty": {
+        "min": 3,
+        "max": 3
+      },
+      "level": "上級者向け",
+      "features": "通常攻撃無効ゾーン（W）や、どこからでも味方にシールドを付与できるウルトによるローム（他レーン関与）性能が魅力。",
+      "cautions": "本業トップレーナーのためサポート時の耐久力・アフターショック発動の確実性に欠ける。ADCをレーンで直接守るピール性能は低め。",
+      "durability": null,
+      "engage": null,
+      "peel": null,
+      "review_notes": []
+    }
+  }
+}

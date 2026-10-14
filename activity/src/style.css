@@ -1,0 +1,198 @@
+/* 川（リバー）の深い青緑を地色に、ADC＝金、サポート＝水色の2色で役割を色分けする。
+   外部フォントは Discord の制限で読み込めないため、OS 標準の日本語フォントを使う。 */
+:root {
+  --river: #0f2328;
+  --bank: #15303a;
+  --bank-2: #1b3b45;
+  --line: #29505a;
+  --ink: #e6efea;
+  --mute: #9ab3ae;
+  --gold: #e2b04a;
+  --gold-soft: rgba(226, 176, 74, 0.16);
+  --aqua: #5fcabd;
+  --aqua-soft: rgba(95, 202, 189, 0.14);
+  --violet: #b9a4ff;
+  --violet-soft: rgba(185, 164, 255, 0.16);
+  --font: 'Yu Gothic UI', 'Hiragino Sans', 'Noto Sans JP', 'Meiryo', system-ui, sans-serif;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+body {
+  background: var(--river);
+  color: var(--ink);
+  font: 15px/1.7 var(--font);
+  -webkit-font-smoothing: antialiased;
+}
+button { font: inherit; color: inherit; cursor: pointer; }
+button:focus-visible, input:focus-visible { outline: 2px solid var(--aqua); outline-offset: 2px; }
+
+#app { min-height: 100%; display: flex; flex-direction: column; }
+
+/* ---- ヘッダーとタブ ---- */
+.top {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+  padding: 14px 20px 0;
+  border-bottom: 1px solid var(--line);
+}
+.brand { margin: 0 0 12px; font-size: 17px; font-weight: 700; letter-spacing: 0.04em; }
+.tabs { display: flex; gap: 4px; }
+.tab {
+  background: none; border: 0; padding: 8px 14px 12px;
+  color: var(--mute); font-weight: 600;
+  border-bottom: 3px solid transparent; margin-bottom: -1px;
+}
+.tab[aria-selected='true'] { color: var(--ink); border-bottom-color: var(--aqua); }
+.tab:hover { color: var(--ink); }
+
+.notice { margin: 0; padding: 8px 20px; font-size: 13px; color: var(--mute); background: var(--bank); }
+.fatal { padding: 24px; color: #ffb4a8; }
+
+/* ---- 本体：左に一覧、右に詳細 ---- */
+.body { flex: 1; display: grid; grid-template-columns: minmax(220px, 280px) 1fr; min-height: 0; }
+.body[data-tab='words'] { grid-template-columns: 1fr; }
+
+.list { padding: 16px 12px 24px 20px; border-right: 1px solid var(--line); overflow-y: auto; max-height: calc(100vh - 110px); }
+.list ul { list-style: none; margin: 0; padding: 0; }
+.list-lead { margin: 0 0 12px; font-size: 13px; color: var(--mute); }
+
+.search { display: block; margin-bottom: 4px; }
+.search-label { display: block; font-size: 12px; color: var(--mute); margin-bottom: 4px; }
+.search input {
+  width: 100%; padding: 8px 10px; border-radius: 6px;
+  background: var(--bank); border: 1px solid var(--line); color: var(--ink); font: inherit;
+}
+.count { margin: 0 0 8px; font-size: 12px; color: var(--mute); }
+.empty { font-size: 13px; color: var(--mute); }
+
+.group { margin-bottom: 14px; }
+.group-name { margin: 0 0 4px; font-size: 12px; font-weight: 600; color: var(--gold); opacity: 0.85; }
+
+.pick {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  width: 100%; text-align: left; padding: 6px 10px; margin: 1px 0;
+  background: none; border: 0; border-left: 3px solid transparent; border-radius: 0 6px 6px 0;
+}
+.pick:hover { background: var(--bank); }
+.pick.adc.is-on { background: var(--gold-soft); border-left-color: var(--gold); font-weight: 700; }
+.pick.tank.is-on { background: var(--aqua-soft); border-left-color: var(--aqua); font-weight: 700; }
+
+.detail { padding: 24px 32px 40px; overflow-y: auto; max-height: calc(100vh - 110px); }
+.detail > * { max-width: 46em; }
+.back { display: none; }
+
+/* ---- 未選択時 ---- */
+.intro { padding-top: 24px; }
+.intro-lead { font-size: 17px; font-weight: 600; margin: 20px 0 8px; }
+.intro-sub { color: var(--mute); margin: 0; }
+.lane { display: flex; align-items: center; gap: 0; max-width: 360px; }
+.slot { padding: 6px 14px; border-radius: 999px; font-weight: 700; font-size: 13px; }
+.slot.gold { background: var(--gold-soft); color: var(--gold); border: 1px solid var(--gold); }
+.slot.aqua { background: var(--aqua-soft); color: var(--aqua); border: 1px solid var(--aqua); }
+.bond { flex: 1; height: 2px; background: linear-gradient(90deg, var(--gold), var(--aqua)); }
+
+/* ---- 組み合わせの見出し（この画面の主役） ---- */
+.pair {
+  display: grid; grid-template-columns: minmax(0, 1fr) 40px minmax(0, 1.3fr); align-items: stretch;
+  margin-bottom: 8px;
+}
+.pair-adc { border-left: 4px solid var(--gold); padding: 4px 0 4px 16px; }
+.pair-sup { border-left: 4px solid var(--aqua); padding: 4px 0 4px 16px; }
+.pair-bond { position: relative; }
+.pair-bond::before {
+  content: ''; position: absolute; left: 0; right: 0; top: 52px; height: 2px;
+  background: linear-gradient(90deg, var(--gold), var(--aqua));
+}
+.role { margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; }
+.role.gold { color: var(--gold); }
+.role.aqua { color: var(--aqua); }
+.name { margin: 2px 0 2px; font-size: 32px; line-height: 1.25; font-weight: 800; letter-spacing: 0.02em; }
+.meta { margin: 0; font-size: 13px; color: var(--mute); }
+
+.chips { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0; padding: 0; }
+.chip {
+  display: inline-flex;
+  padding: 6px 12px; border-radius: 8px; font-size: 17px; font-weight: 700;
+  background: var(--aqua-soft); border: 1px solid transparent; color: var(--ink);
+}
+button.chip.is-tank { border-color: var(--aqua); }
+button.chip.is-tank:hover { background: rgba(95, 202, 189, 0.26); }
+button.chip.is-adc { background: var(--gold-soft); border-color: var(--gold); font-size: 15px; }
+.chip-sub { font-size: 11px; font-weight: 500; color: var(--aqua); }
+.hint, .none { font-size: 12px; color: var(--mute); margin: 4px 0 0; }
+.none { font-size: 14px; }
+
+.h { margin: 28px 0 6px; font-size: 13px; font-weight: 700; color: var(--mute); }
+.reason { margin: 0; font-size: 16px; line-height: 1.85; }
+.tags { margin: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.tag { padding: 2px 10px; border-radius: 999px; border: 1px solid var(--line); font-size: 13px; }
+.notes { margin: 0; padding-left: 1.2em; font-size: 13px; color: var(--mute); }
+.source { margin-top: 32px; font-size: 12px; color: var(--mute); display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; }
+.link { background: none; border: 1px solid var(--line); border-radius: 6px; padding: 4px 10px; color: var(--aqua); font-size: 12px; }
+.link:hover { border-color: var(--aqua); }
+
+/* ---- アイコンとAD/AP ---- */
+.ava { flex: none; border-radius: 50%; object-fit: cover; background: var(--bank-2); }
+.ava-sm { width: 28px; height: 28px; }
+.ava-lg { width: 64px; height: 64px; margin-bottom: 8px; box-shadow: 0 0 0 2px var(--line); }
+.pair-adc .ava-lg { box-shadow: 0 0 0 2px var(--gold); }
+.detail > .ava-lg { box-shadow: 0 0 0 2px var(--aqua); }
+.ava-none { display: inline-grid; place-items: center; font-size: 12px; font-weight: 700; color: var(--mute); }
+.ava-lg.ava-none { font-size: 24px; }
+.pick .pick-name { flex: 1; min-width: 0; }
+.pick.adc, .pick.tank { justify-content: flex-start; gap: 10px; }
+.dmg {
+  flex: none; font-size: 11px; font-weight: 800; letter-spacing: 0.04em;
+  padding: 1px 6px; border-radius: 4px; line-height: 1.5;
+}
+.dmg-ad { color: var(--gold); background: var(--gold-soft); }
+.dmg-ap { color: var(--violet); background: var(--violet-soft); }
+.chip { flex-direction: row; align-items: center; gap: 8px; }
+.chip-text { display: inline-flex; flex-direction: column; align-items: flex-start; }
+.credit { margin-top: 28px; font-size: 11px; color: var(--mute); line-height: 1.6; }
+
+/* ---- 星 ---- */
+.stars { display: inline-flex; gap: 3px; flex: none; }
+.star { width: 10px; height: 10px; transform: rotate(45deg); border-radius: 2px; }
+.star.full { background: var(--aqua); }
+.star.range { background: transparent; box-shadow: inset 0 0 0 1.5px var(--aqua); }
+.star.empty { background: var(--line); }
+.rating { display: flex; align-items: center; gap: 14px; margin: 8px 0; }
+.rating p { margin: 0; }
+.rating .star { width: 14px; height: 14px; }
+.extra { margin: 0; font-size: 14px; }
+.detail > .role { margin-top: 0; }
+
+/* ---- 用語 ---- */
+.words { padding: 20px; max-width: 46em; }
+.words dl { margin: 0; }
+.word { display: grid; grid-template-columns: 9em 1fr; gap: 16px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.word dt { font-weight: 700; color: var(--aqua); }
+.word dd { margin: 0; }
+
+.foot { padding: 10px 20px; font-size: 11px; color: var(--mute); border-top: 1px solid var(--line); }
+
+/* ---- 狭い画面（スマホ・Discord の小窓）：一覧と詳細を切り替え ---- */
+@media (max-width: 720px) {
+  .top { padding: 10px 14px 0; }
+  .brand { font-size: 15px; margin-bottom: 6px; }
+  .tab { padding: 6px 10px 10px; }
+  .body { grid-template-columns: 1fr; }
+  .list, .detail { max-height: none; border-right: 0; padding: 14px 16px 24px; }
+  .body.has-detail .list { display: none; }
+  .body:not(.has-detail) .detail { display: none; }
+  .back {
+    display: inline-block; margin-bottom: 14px; padding: 4px 12px 4px 10px;
+    background: var(--bank); border: 1px solid var(--line); border-radius: 6px; font-size: 13px;
+  }
+  .back::before { content: '‹ '; }
+  .pair { grid-template-columns: 1fr; gap: 14px; }
+  .pair-bond { display: none; }
+  .name { font-size: 26px; }
+  .word { grid-template-columns: 1fr; gap: 2px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { scroll-behavior: auto !important; }
+}

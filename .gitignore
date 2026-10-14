@@ -1,0 +1,34 @@
+# --- 秘密情報（最優先。絶対にコミットしない） ---
+.env
+.env.*
+!.env.example
+*.pem
+*credentials*.json
+signate.json
+
+# --- 依存パッケージ・仮想環境 ---
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# --- 一時ファイル・生成物 ---
+tmp/
+dist/
+.wrangler/
+build/
+*.log
+
+# --- データ（大容量。必要なら個別に解除する） ---
+data/processed/
+data/cache/
+
+# --- OS ---
+.DS_Store
+Thumbs.db
+desktop.ini
+activity/tools/last-*.log
+
+# --- Riot のアイコン画像（公開時に scripts/fetch-icons.mjs が自動取得するため保存しない） ---
+activity/src/assets/champions/*.png
